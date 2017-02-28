@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="shopList"></ul>
+	</body>
+	<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var arr = JSON.parse(localStorage.getItem('shop5'));
+		for (var i = 0; i < arr.length; i++) {
+			var obj = arr[i];
+			var liObj = $("<li><h4>"+ obj.name +"</h4><p>"+ obj.count +"<p></li>");
+			$('#shopList').append(liObj);
+		}
+	</script>
+</html>

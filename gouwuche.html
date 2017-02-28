@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list"></ul>
+	</body>
+	<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	
+		var arr = [{name:"ssdf",price:12},{name:"fsafd",price:12},{name:"ss323df",price:12},{name:"asdfa",price:12},{name:"sss",price:12}]
+	
+		for (var i = 0; i < arr.length; i++) {
+			var obj = arr[i];
+			var liObj= $('<li><h4></h4><p></p><button>+</button></li>');
+			liObj.find('h4').text(obj.name);
+			liObj.find('p').text(obj.price);
+			$('#list').append(liObj);
+			
+			(function(obj1){
+				liObj.find('button').on('click',function(){
+					if (localStorage.getItem('shop5') && localStorage.getItem('shop5').length>0) {
+						var arr1 = JSON.parse(localStorage.getItem('shop5'));
+						
+						var flag = false;
+						//是否已经有一个
+						for (var i = 0; i < arr1.length; i++) {
+							if (arr1[i].name == obj1.name) {
+								arr1[i].count++;
+								flag = true;
+							}
+						}
+						if (!flag) {
+							obj1.count = 1;
+							arr1.push(obj1);
+						}
+						localStorage.setItem('shop5',JSON.stringify(arr1));
+					}else{
+						var arr2 = [];
+						obj1.count = 1;
+						arr2.push(obj1);
+						localStorage.setItem('shop5',JSON.stringify(arr2));
+					}
+					
+				})
+			})(obj);
+			
+		}
+	</script>
+</html>

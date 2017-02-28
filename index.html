@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+
+	</body>
+	<script type="text/javascript">
+		//		var arr = [1,3,4,2,2,5];
+		var arr = [{
+			name: 'thangsan',
+			age: '13'
+		}, {
+			name: 'zanfang',
+			age: '8'
+		}, {
+			name: 'ailiang',
+			age: '43'
+		}]
+		arr.sort(function(a, b) {
+			return parseInt(a.age) - parseInt(b.age);
+		});
+		console.log(arr);
+		
+		
+		
+		
+		
+
+//		var arr = [{
+//			name: 'zopp',
+//			age: 0
+//		}, {
+//			name: 'gpp',
+//			age: 18
+//		}, {
+//			name: 'yjj',
+//			age: 8
+//		}];
+//
+//		function compare(property) {
+//			return function(a, b) {
+//				var value1 = a[property];
+//				var value2 = b[property];
+//				return value1 - value2;
+//			}
+//		}
+//		console.log(arr.sort(compare('age')))
+	</script>
+
+</html>
